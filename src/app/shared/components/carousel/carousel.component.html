@@ -1,0 +1,28 @@
+<div id="carousel">
+  <img src="../../../../assets/imgs/people-talking.png" alt="" />
+  <div id="message">
+    <h2>
+      {{ actualMessage.title }}
+    </h2>
+    <p>
+      {{ actualMessage.description }}
+    </p>
+  </div>
+  <div id="dots">
+    <span
+      [@transition]="
+        this.actualMessage == this.messages['0'] ? 'open' : 'closed'
+      "
+    ></span>
+    <span
+      [@transition]="
+        this.actualMessage == this.messages['1'] ? 'open' : 'closed'
+      "
+    ></span>
+    <span
+      [@transition]="
+        this.actualMessage == this.messages['2'] ? 'open' : 'closed'
+      "
+    ></span>
+  </div>
+</div>

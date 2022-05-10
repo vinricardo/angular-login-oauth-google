@@ -1,0 +1,92 @@
+<app-successful-logged
+  [person]="person"
+  [logged]="logged"
+  (logout)="logout($event)"
+  *ngIf="logged"
+></app-successful-logged>
+<section id="content" [@successLogin]="logged ? 'open' : ''">
+  <section id="carousel-page">
+    <app-carousel></app-carousel>
+  </section>
+  <section id="login-page">
+    <div id="home-icon">
+      <div id="icon">
+        <fa-icon [icon]="homeIcon" size="3x"></fa-icon>
+      </div>
+    </div>
+    <div id="apresentation">
+      <h1>{{ redirectToRegisterPage ? "Welcome!" : "Hello Again!" }}</h1>
+      <summary>
+        Etiam sit amet elit dictum, vulputate lorem vel, lacinia ante. Donec
+        efficitur scelerisque euismod.
+      </summary>
+    </div>
+    <div id="form" *ngIf="!redirectToRegisterPage">
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label class="card--form--label">E-mail</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="E-mail"
+            formControlName="email"
+            (focus)="changeColorIconOnFocus('fa-at', 'in')"
+            (focusout)="changeColorIconOnFocus('fa-at', 'out')"
+          />
+          <fa-icon [icon]="atIcon" size="2x"></fa-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label class="card--form--label">Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            (focus)="changeColorIconOnFocus('fa-unlock-keyhole', 'in')"
+            (focusout)="changeColorIconOnFocus('fa-unlock-keyhole', 'out')"
+          />
+          <fa-icon [icon]="lockIcon" size="2x"></fa-icon>
+        </mat-form-field>
+      </form>
+      <span
+        *ngIf="messageErrorLocally.length > 0"
+        [ngStyle]="{ color: '#f44336', 'font-weight': 500 }"
+        >{{ messageErrorLocally }}</span
+      >
+      <button mat-raised-button color="primary" (click)="loginLocally()">
+        Login
+      </button>
+      <button mat-button color="primary" id="oauth" (click)="loginWithGoogle()">
+        <img src="../../assets/icons/google.png" />
+        Sign in with Google
+      </button>
+    </div>
+    <div id="register-page" *ngIf="redirectToRegisterPage">
+      <app-register-user
+        (successfulSignUp)="getSignUpBack($event)"
+      ></app-register-user>
+    </div>
+    <footer>
+      <span *ngIf="!redirectToRegisterPage"
+        >Don't have an account yet?
+        <button
+          mat-button
+          color="primary"
+          (click)="redirectToRegisterPage = true"
+        >
+          Sign Up
+        </button></span
+      >
+      <span *ngIf="redirectToRegisterPage"
+        >Do you have an account yet?
+        <button
+          mat-button
+          color="primary"
+          (click)="redirectToRegisterPage = false"
+        >
+          Sign In
+        </button></span
+      >
+    </footer>
+  </section>
+</section>

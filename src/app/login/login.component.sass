@@ -1,0 +1,74 @@
+@import '../../styles'
+section
+    height: 100%
+
+#content
+    display: flex
+    #carousel-page
+        background: $default-blue
+        width: 50%
+        height: 100%
+    #login-page
+        width: 50%
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        #home-icon
+            margin: 2rem
+            #icon
+                background: aliceblue
+                padding: 2rem
+                border-radius: 50%
+                border: 1px solid #d4d4d4
+                ::ng-deep fa-icon
+                    color: $default-blue
+        #apresentation
+            width: 70%
+            display: flex
+            flex-direction: column
+            align-items: center
+            margin-bottom: 3rem
+            h1,summary
+                font-weight: 400
+                color: #1a1a1a
+            h1
+                font-size: 2.5rem
+            summary
+                opacity: .7
+                font-size: 1.1rem
+                text-align: center
+                margin-top: 1rem
+                width: 60%
+        ::ng-deep app-register-user
+            width: 100%
+        #form, #register-page
+            width: 70%
+            max-width: 25rem
+            display: flex
+            justify-content: center
+            flex-direction: column
+            ::ng-deep fa-icon
+                position: absolute
+                top: 15%
+                right: 0            
+                color: #d4d4d4
+            button
+                padding: .3rem
+                margin-top: 1rem
+                font-size: 1rem
+                img
+                    width: 1.5rem
+                    margin: auto 1rem
+                &:hover
+                    opacity: .8
+                    outline: aliceblue .5rem solid
+        footer
+            position: absolute
+            bottom: 3%
+            font-size: 1rem
+            color: #adadad
+            button
+                font-size: 1rem
+
+                

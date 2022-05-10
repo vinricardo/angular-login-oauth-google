@@ -1,0 +1,38 @@
+<section>
+  <div
+    [@successLogin]="logged ? 'open' : ''"
+    [@outline]="logged ? 'open' : ''"
+    *ngIf="logged"
+    id="circle"
+  >
+    <mat-progress-spinner
+      class="example-margin"
+      color="accent"
+      strokeWidth="15"
+      diameter="240"
+      [mode]="modeSpinner"
+      value="100"
+    >
+    </mat-progress-spinner>
+    <fa-icon [icon]="checkIcon" size="9x"></fa-icon>
+    <div id="subtitle">
+      <h3>Confirmed!</h3>
+    </div>
+  </div>
+</section>
+<div id="person" *ngIf="person">
+  <span
+    >Hi, {{ person.given_name || person.firstName }}! You logged with this
+    email: <br />
+    {{ person.email }}</span
+  >
+</div>
+<button
+  mat-fab
+  color="accent"
+  aria-label="Example icon button with a delete icon"
+  (click)="logOut()"
+  id="logout"
+>
+  <fa-icon [icon]="exitIcon" size="2x" style="color: white"></fa-icon>
+</button>

@@ -1,0 +1,67 @@
+<form [formGroup]="form" *ngIf="!showSuccessfulSignUp">
+  <mat-form-field appearance="outline">
+    <mat-label class="card--form--label">First Name</mat-label>
+    <input
+      type="name"
+      matInput
+      placeholder="First Name"
+      formControlName="firstName"
+      (focus)="changeColorIconOnFocus('fa-person', 'in')"
+      (focusout)="changeColorIconOnFocus('fa-person', 'out')"
+    />
+    <mat-error
+      *ngIf="form.get('firstName')!.invalid && form.get('firstName')!.touched"
+      >{{ getErrorMessage("firstName", "fa-person") }}</mat-error
+    >
+    <fa-icon [icon]="userIcon" size="2x"></fa-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label class="card--form--label">E-mail</mat-label>
+    <input
+      type="email"
+      matInput
+      placeholder="E-mail"
+      formControlName="email"
+      (focus)="changeColorIconOnFocus('fa-at', 'in')"
+      (focusout)="changeColorIconOnFocus('fa-at', 'out')"
+    />
+    <mat-error
+      *ngIf="form.get('email')!.invalid && form.get('email')!.touched"
+      >{{ getErrorMessage("email", "fa-at") }}</mat-error
+    >
+    <fa-icon [icon]="atIcon" size="2x"></fa-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label class="card--form--label">Password</mat-label>
+    <input
+      type="password"
+      matInput
+      placeholder="Password"
+      formControlName="password"
+      (focus)="changeColorIconOnFocus('fa-unlock-keyhole', 'in')"
+      (focusout)="changeColorIconOnFocus('fa-unlock-keyhole', 'out')"
+    />
+    <mat-error
+      *ngIf="form.get('password')!.invalid && form.get('password')!.touched"
+      >{{ getErrorMessage("password", "fa-unlock-keyhole") }}</mat-error
+    >
+    <fa-icon [icon]="lockIcon" size="2x"></fa-icon>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="createUser()"
+    [disabled]="form.invalid"
+  >
+    Sign up
+  </button>
+</form>
+<div id="message" *ngIf="showSuccessfulSignUp">
+  <span
+    >You're registered!<br />
+    Now, you can sign in with this email</span
+  >
+  <button mat-raised-button color="primary" (click)="goBackToLogin()">
+    Go back to login
+  </button>
+</div>

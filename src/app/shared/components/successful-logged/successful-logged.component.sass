@@ -1,0 +1,48 @@
+@import '../../../../styles'
+section
+    position: absolute
+    inset: 0
+    z-index: 999
+    #circle
+        background: white
+        height: 15rem
+        width: 15rem
+        border-radius: 50%
+        margin: 25% auto
+        ::ng-deep fa-icon
+            position: absolute
+            display: flex
+            width: 15rem
+            height: 15rem
+            margin-top: -15rem
+            justify-content: center
+            align-items: center
+            svg
+                color: #069e2c
+        #subtitle
+            position: absolute
+            width: 15rem
+            text-align: center
+            h3
+                color: white
+                font-size: 1.5rem
+                margin-top: 3rem
+#person
+    position: absolute
+    z-index: 999
+    inset: 0
+    span
+        margin: 15% auto
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        color: white
+        font-size: 1.5rem
+        text-align: center
+        line-height: 3rem
+#logout
+    position: absolute
+    z-index: 999
+    top: 3%
+    right: 3%
